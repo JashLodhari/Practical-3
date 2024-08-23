@@ -13,10 +13,10 @@ tools{
         }
       }
     }
-    stage('Building Maven Project') {
+    stage('Compileing Maven Project') {
       steps {
         script {
-          bat 'mvn build'
+          bat 'mvn compile'
         }
       }
     }
