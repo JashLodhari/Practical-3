@@ -2,9 +2,6 @@
 
 pipeline {
   agent any
-tools{
-  maven "Maven1"
-}
   stages {
     stage('Validate Maven Project') {
       steps {
@@ -31,6 +28,20 @@ tools{
       steps {
         script {
           bat 'mvn package'
+        }
+      }
+    }
+    stage('Installation in Local') {
+      steps {
+        script {
+          bat 'mvn install'
+        }
+      }
+    }
+    stage('Deployment') {
+      steps {
+        script {
+          bat 'mvn deploy'
         }
       }
     }
